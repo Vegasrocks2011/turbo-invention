@@ -1,0 +1,209 @@
+
+<style>
+* { box-sizing: border-box; }
+.wrap { padding: 1.5rem 0; font-size: 15px; color: var(--color-text-primary); }
+.tabs { display: flex; gap: 8px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.tab { padding: 7px 16px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); font-size: 13px; cursor: pointer; background: var(--color-background-primary); color: var(--color-text-secondary); }
+.tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; border-color: var(--color-border-primary); }
+.panel { display: none; }
+.panel.active { display: block; }
+.section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-secondary); margin-bottom: 0.5rem; margin-top: 1.25rem; }
+.section-label:first-child { margin-top: 0; }
+.starters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; margin-bottom: 0.5rem; }
+.starter { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 8px 12px; font-size: 13px; line-height: 1.5; color: var(--color-text-primary); }
+.starter em { color: var(--color-text-secondary); font-style: normal; }
+.starter-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px; }
+.benefit-block { border-left: 3px solid #3B6D11; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; }
+.risk-block { border-left: 3px solid #A32D2D; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; }
+.conclusion-block { border-left: 3px solid #185FA5; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; }
+.counter-block { border-left: 3px solid #854F0B; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; }
+.frame-wrap { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+.frame-row { padding: 10px 14px; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; line-height: 1.6; }
+.frame-row:last-child { border-bottom: none; }
+.frame-row .row-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+.row-benefit .row-label { color: #27500A; }
+.row-benefit { background: #EAF3DE; }
+.row-risk .row-label { color: #791F1F; }
+.row-risk { background: #FCEBEB; }
+.row-counter .row-label { color: #633806; }
+.row-counter { background: #FAEEDA; }
+.row-conclusion .row-label { color: #0C447C; }
+.row-conclusion { background: #E6F1FB; }
+.row-neutral { background: var(--color-background-secondary); }
+.row-neutral .row-label { color: var(--color-text-secondary); }
+.frame-row .placeholder { color: var(--color-text-secondary); font-style: italic; }
+.model-text { font-size: 13px; line-height: 1.75; color: var(--color-text-primary); background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem 1.1rem; }
+.model-text .b { color: #27500A; font-weight: 500; }
+.model-text .r { color: #791F1F; font-weight: 500; }
+.model-text .c { color: #0C447C; font-weight: 500; }
+.model-text .ct { color: #633806; font-weight: 500; }
+.legend { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-text-secondary); }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.ladder-row { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.ladder-row:last-child { border-bottom: none; }
+.ladder-level { min-width: 80px; font-size: 12px; font-weight: 500; }
+.ladder-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; flex: 1; }
+.ladder-example { font-size: 12px; font-style: italic; color: var(--color-text-primary); margin-top: 3px; }
+.lv1 { color: #A32D2D; }
+.lv2 { color: #854F0B; }
+.lv3 { color: #27500A; }
+.lv4 { color: #0C447C; }
+.tip { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.6rem 0.9rem; font-size: 12px; color: var(--color-text-secondary); margin-top: 0.75rem; line-height: 1.5; }
+</style>
+
+<div class="wrap">
+  <h2 class="sr-only">Evaluate writing frame and sentence starters — iGCSE Biology genetics ethics</h2>
+
+  <div class="tabs">
+    <div class="tab active" onclick="show('starters', this)">Sentence starters</div>
+    <div class="tab" onclick="show('frame', this)">Writing frame</div>
+    <div class="tab" onclick="show('model', this)">Annotated model</div>
+    <div class="tab" onclick="show('ladder', this)">Quality ladder</div>
+  </div>
+
+  <div id="panel-starters" class="panel active">
+
+    <div class="section-label">Introducing a benefit</div>
+    <div class="starters-grid">
+      <div class="starter benefit-block"><div class="starter-label">Introduce</div>One benefit of <em>[technology]</em> is that...</div>
+      <div class="starter benefit-block"><div class="starter-label">Introduce + explain</div>This means that... because...</div>
+      <div class="starter benefit-block"><div class="starter-label">Add a second</div>A further advantage is that...</div>
+      <div class="starter benefit-block"><div class="starter-label">Qualify</div>This benefit is most significant when...</div>
+    </div>
+
+    <div class="section-label">Introducing a risk or drawback</div>
+    <div class="starters-grid">
+      <div class="starter risk-block"><div class="starter-label">Contrast</div>However, there are also concerns about...</div>
+      <div class="starter risk-block"><div class="starter-label">Scientific risk</div>A significant risk is that... This could lead to...</div>
+      <div class="starter risk-block"><div class="starter-label">Ethical concern</div>Some people argue that it is ethically wrong to... because...</div>
+      <div class="starter risk-block"><div class="starter-label">Uncertainty</div>A further concern is that the long-term effects of... are not yet fully understood.</div>
+    </div>
+
+    <div class="section-label">Countering or complicating</div>
+    <div class="starters-grid">
+      <div class="starter counter-block"><div class="starter-label">Counter a risk</div>This risk could be reduced if... because...</div>
+      <div class="starter counter-block"><div class="starter-label">Complicate a benefit</div>Although this appears beneficial, it is important to consider...</div>
+      <div class="starter counter-block"><div class="starter-label">Acknowledge complexity</div>The extent to which this is a problem depends on...</div>
+      <div class="starter counter-block"><div class="starter-label">Distinguish cases</div>This is more concerning for <em>[human genetics]</em> than for <em>[GM crops]</em> because...</div>
+    </div>
+
+    <div class="section-label">Writing a conclusion — this is where marks are won or lost</div>
+    <div class="starters-grid">
+      <div class="starter conclusion-block"><div class="starter-label">Weigh up</div>On balance, the benefits of <em>[technology]</em> outweigh the risks because...</div>
+      <div class="starter conclusion-block"><div class="starter-label">Conditional</div>Overall, <em>[technology]</em> is justified provided that... However, if... then...</div>
+      <div class="starter conclusion-block"><div class="starter-label">Distinguish</div>In conclusion, the case for <em>[technology]</em> is stronger for <em>[one use]</em> than for <em>[another]</em> because...</div>
+      <div class="starter conclusion-block"><div class="starter-label">Acknowledge limits</div>While this judgement is supported by current evidence, it may change if...</div>
+    </div>
+
+    <div class="tip">Avoid: "I think..." alone — it signals opinion not evidence. Always follow with "because..." and a scientific or ethical reason.</div>
+  </div>
+
+  <div id="panel-frame" class="panel">
+    <div style="font-size:13px; color:var(--color-text-secondary); margin-bottom:1rem; line-height:1.5;">Complete each section in order. You do not need to use every box — but you must complete at least one benefit, one risk and the conclusion.</div>
+
+    <div class="frame-wrap">
+      <div class="frame-row row-neutral">
+        <div class="row-label">The question</div>
+        <div>Evaluate the use of <span style="font-weight:500;">genetic engineering / selective breeding / genetic screening</span> in modern biology.</div>
+      </div>
+      <div class="frame-row row-benefit">
+        <div class="row-label">Benefit 1 — what it is</div>
+        <div class="placeholder">One benefit of __________ is that __________</div>
+      </div>
+      <div class="frame-row row-benefit">
+        <div class="row-label">Benefit 1 — explain why</div>
+        <div class="placeholder">This means that __________ because __________</div>
+      </div>
+      <div class="frame-row row-benefit">
+        <div class="row-label">Benefit 2 (optional but recommended)</div>
+        <div class="placeholder">A further advantage is __________</div>
+      </div>
+      <div class="frame-row row-risk">
+        <div class="row-label">Risk 1 — what it is</div>
+        <div class="placeholder">However, a significant risk is that __________</div>
+      </div>
+      <div class="frame-row row-risk">
+        <div class="row-label">Risk 1 — explain the consequence</div>
+        <div class="placeholder">This could lead to __________ because __________</div>
+      </div>
+      <div class="frame-row row-risk">
+        <div class="row-label">Risk 2 — ethical or social concern</div>
+        <div class="placeholder">There are also ethical concerns about __________ because __________</div>
+      </div>
+      <div class="frame-row row-counter">
+        <div class="row-label">Complicate or qualify (optional — but shows higher ability)</div>
+        <div class="placeholder">The extent to which this is a problem depends on __________ . This risk could be reduced if __________</div>
+      </div>
+      <div class="frame-row row-conclusion">
+        <div class="row-label">Conclusion — you must make a judgement</div>
+        <div class="placeholder">On balance, the benefits of __________ outweigh / do not outweigh the risks because __________. However, this is only true provided that __________</div>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:1rem;">The conclusion must do more than say "there are benefits and risks." It must state which side is stronger and explain why. That is what "evaluate" means.</div>
+  </div>
+
+  <div id="panel-model" class="panel">
+    <div class="legend">
+      <div class="legend-item"><span class="dot" style="background:#3B6D11"></span> Benefit</div>
+      <div class="legend-item"><span class="dot" style="background:#A32D2D"></span> Risk</div>
+      <div class="legend-item"><span class="dot" style="background:#854F0B"></span> Complication</div>
+      <div class="legend-item"><span class="dot" style="background:#185FA5"></span> Conclusion</div>
+    </div>
+
+    <div class="model-text">
+      <span class="b">One benefit of genetic engineering to produce herbicide-resistant crops is that farmers can spray the whole field with herbicide, killing weeds but not the crop. This reduces competition for water, minerals and light, increasing crop yield.</span> <span class="b">A further advantage is that higher yields mean more food can be produced on the same area of land, which is increasingly important as the global population grows.</span><br><br>
+      <span class="r">However, there are significant risks. The herbicide-resistance gene could spread to wild plants through cross-pollination, producing herbicide-resistant weeds that are very difficult to control.</span> <span class="r">This could also reduce biodiversity, as efficient weed removal eliminates plants that other organisms depend on.</span> <span class="r">There are also ethical concerns — some people believe it is wrong to alter the genetics of organisms and release them into the environment when the long-term consequences are not fully understood.</span><br><br>
+      <span class="ct">The extent to which gene transfer is a problem depends on the proximity of wild relatives of the crop plant and how carefully the technology is regulated.</span><br><br>
+      <span class="c">On balance, the benefits of GM herbicide-resistant crops outweigh the risks, particularly their potential to address global food insecurity. However, this judgement holds only provided that robust regulation is in place to prevent uncontrolled gene transfer and monitor long-term ecological effects.</span>
+    </div>
+
+    <div class="tip" style="margin-top:1rem;">Notice: the conclusion does not just say "both sides have merits." It makes a clear judgement, states a condition, and explains the reasoning. That is a 6/6 conclusion.</div>
+  </div>
+
+  <div id="panel-ladder" class="panel">
+    <div style="font-size:13px; color:var(--color-text-secondary); margin-bottom:1rem; line-height:1.5;">Use this to self-assess your answer before you hand it in.</div>
+
+    <div class="ladder-row">
+      <div class="ladder-level lv1">1–2 marks</div>
+      <div class="ladder-desc">
+        One or two points made with no development. No reasoning. No conclusion.
+        <div class="ladder-example">"GM crops are good because they help farmers. But they might be bad for the environment."</div>
+      </div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-level lv2">3–4 marks</div>
+      <div class="ladder-desc">
+        At least one benefit and one risk, both explained. A conclusion is present but only restates the two sides without weighing them.
+        <div class="ladder-example">"...Overall, there are both benefits and drawbacks to GM crops."</div>
+      </div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-level lv3">5 marks</div>
+      <div class="ladder-desc">
+        Two benefits and two risks, all explained with reasoning. Conclusion makes a clear judgement — states which side is stronger.
+        <div class="ladder-example">"On balance, the benefits outweigh the risks because..."</div>
+      </div>
+    </div>
+    <div class="ladder-row">
+      <div class="ladder-level lv4">6 marks</div>
+      <div class="ladder-desc">
+        All of the above plus: conclusion explains why one side is stronger, acknowledges conditions or limits, uses precise scientific vocabulary throughout.
+        <div class="ladder-example">"On balance, the benefits outweigh the risks, particularly regarding food security — provided that regulation prevents uncontrolled gene transfer."</div>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:1rem;">Self-check before you finish: Have I written "because" at least three times? Have I written "on balance"? Have I named a specific risk and a specific benefit — not just "there are risks" and "there are benefits"?</div>
+  </div>
+
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
